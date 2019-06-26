@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>modulo 3</title>
+</head>
+<body>
+        
+
+    <script> 
+
+
+
+function verificarIdade(idade) {
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      return idade >= 18 ? resolve() : reject();
+    }, 2000);
+  });
+}
+
+checaIdade(18)
+  .then(function() {
+    console.log("Maior de idade");
+  })
+  .catch(function() {
+    console.log("Menor de idade");
+  });
+        </script>
+</body>
+</html>
+
+
+
+
+

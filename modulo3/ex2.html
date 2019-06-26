@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>modulo 3</title>
+</head>
+<body>
+    <input type="text" name="usuario">
+    <button onclick="listaderepositorios()">adicionar</button>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+    <script> 
+
+
+
+var listElement = document.querySelector('ul');
+var inputElement = document.querySelector('input');
+
+
+    function pushrepositorios(repositorios) {
+      for (repo of repositorios) {
+
+        const textElement = document.createTextNode(repo.name);
+        const liElement = document.createElement('li');
+
+        liElement.appendChild(textElement);
+        listElement.appendChild(liElement);
+      }
+    }
+    function listRepositorios() {
+
+      var usuario = inputElement.value;
+
+      if (!usuario) return;
+
+      axios.get('https://api.github.com/users/' + usuario + '/repositorios')
+        .then(function (response) {
+          renderRepositorios(response.data);
+        })
+    }
+        </script>
+
+
+</body>
+</html>
+
+
+
+
+
